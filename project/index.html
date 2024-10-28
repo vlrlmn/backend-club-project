@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Valerie's blog</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Anton%7CBaskervville%7CRaleway&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Notable&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <!-- Homepage -->
+      <section class="heading">
+        <header class="hero">
+          <img src="pictures/travel/main.JPG" class="left" alt="Image 1">
+          <img src="pictures/travel/main2.jpeg" class="right" alt="Image 2">
+          <div class="overlay"></div>
+          <h1 class="author-title">Welcome to my world</h1>
+          <p class="author-subtitle">
+              Hi! This is Valerie's blog, where you can find my highlights on self-development, aesthetics, and life's celebration.
+          </p>
+        </header>
+        
+        <div class="explore-button">
+          <a href="newpage.html" class="button">Discover More</a>
+        </div>
+        <div class="menu" id="menu">
+          <ul>
+            <li><a href="#" id="articles-link">Articles</a></li>
+            <li><a href="#">Moodboard</a></li>
+            <li><a href="#">Reach Out</a></li>
+            <li><a href="#">About</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Articles page -->
+      <section id="articles-page" class="hidden">
+        <nav class="articles-nav">
+          <button id="back-homepage-btn">Homepage</button>
+          <div class="right-buttons">
+            <button id="moodboard-btn">Moodboard</button>
+            <button id="reach-out-btn">Reach out</button>
+            <button id="about-btn">About</button>
+          </div>
+        </nav>
+
+        <!-- Cover with articles-->
+        <div class="articles-cover">
+          <h1 class="cover-title">Articles</h1>
+        </div>
+
+        <!-- Filter -->
+        <nav class="categories-filter">
+          <div class="categories">
+            <button class="category-btn" data-category="All">All</button>
+            <button class="category-btn" data-category="Lifestyle">Lifestyle</button>
+            <button class="category-btn" data-category="Education">Education</button>
+            <button class="category-btn" data-category="Travel">Travel</button>
+          </div>
+        </nav>
+
+        <div class="articles-container">
+          <!-- Article card -->
+          <div class="article-card">
+            <img src="pictures/education/IMG_6375.jpeg" alt="Description of Image">
+            <div class="article-card-content">
+              <h2>Заголовок статьи</h2>
+              <p>Краткое описание статьи или вводный абзац.</p>
+              <span class="article-card-category">Категория</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="articles.js"></script>
+  </body>
+</html>
