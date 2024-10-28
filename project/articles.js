@@ -3,7 +3,7 @@ const articles = [
         title: 'Travel to Paris',
         excerpt: 'Explore the beautiful city of Paris...',
         content: 'Full article about traveling to Paris...',
-        image: 'images/paris.jpg',
+        image: 'pictures/travel/main2.jpeg',
         category: 'Travel'
     },
     {
@@ -22,6 +22,13 @@ const articles = [
     },
     {
         title: 'Healthy Lifestyle part 2',
+        excerpt: 'How to maintain a healthy lifestyle...',
+        content: 'Full article about a healthy lifestyle...',
+        image: 'images/lifestyle.jpg',
+        category: 'Lifestyle'
+    },
+    {
+        title: 'Healthy Lifestyle part 3',
         excerpt: 'How to maintain a healthy lifestyle...',
         content: 'Full article about a healthy lifestyle...',
         image: 'images/lifestyle.jpg',

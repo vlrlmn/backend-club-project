@@ -172,6 +172,7 @@ body.menu-active .overlay {
     height: 100vh;
     background-color: #282623;
     transition: right 0.7s ease;
+    overflow-y: auto;
     z-index: 11;
 }
 
@@ -194,7 +195,6 @@ body.menu-active .overlay {
 }
 
 /* Articles page navigation bar */
-
 .articles-nav {
     display: flex;
     justify-content: space-between;
@@ -292,54 +292,68 @@ body.menu-active .overlay {
 
 
 /* Articles container */
+
 .articles-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
-    position: relative;
-    gap: 40px;
+    position:relative;
+    gap: 20px;
+    justify-content: space-between;
     padding: 20px;
-    width: 100%;
-    margin-top: 20px;
-    overflow-y: auto;
 }
 
+/* Each article card */
 .article-card {
-    flex-basis: calc(33.33% - 40px);
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    /* display: flex; */
+    flex: 0 1 calc(33.333% - 20px);
+    background-color: rgba(45, 43, 37, 0.9);
+    border-radius: 10px;
     overflow: hidden;
-    transition: transform 0.3s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .article-card:hover {
-    transform: scale(1.05);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+
 }
 
+/* Image inside the article card */
 .article-card img {
     width: 30%;
-    height: auto;
+    height: 100%;
     object-fit: cover;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 
+/* Content inside the article card */
 .article-card-content {
     padding: 15px;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: linen;
 }
 
-.article-card h2, .article-card p {
-    margin: 0;
+.article-card-content h2 {
+    font-size: 1.5rem;
+    font-family: 'Raleway', sans-serif;
+    margin: 0 0 10px 0;
+}
+
+.article-card-content p {
+    font-size: 1rem;
+    margin: 0 0 10px 0;
 }
 
 .article-card-category {
-    margin-top: auto;
-    background-color: rgb(47, 42, 34);
-    padding: 5px;
-    border-radius: 5px;
-    text-align: right;
+    font-size: 0.85rem;
+    font-family: 'Raleway', sans-serif;
+    color: rgba(230, 224, 224, 0.7);
 }
+
 
 /* Screen adaptation */
 @media only screen and (max-width: 720px) {

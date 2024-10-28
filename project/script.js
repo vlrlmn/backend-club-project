@@ -20,7 +20,7 @@ function displayArticles(filteredArticles = articles) {
         const articleCard = document.createElement('div');
         articleCard.classList.add('article-card');
         articleCard.innerHTML = `
-            <img src="${article.image}" alt="${article.title}" />
+            
             <div class="article-card-content">
                 <h2>${article.title}</h2>
                 <p>${article.excerpt}</p>
@@ -30,6 +30,7 @@ function displayArticles(filteredArticles = articles) {
         articlesContainer.appendChild(articleCard);
     });
 }
+/*            <img class="card-img" src="${article.image}" alt="${article.title}" />*/
 
 function navigateTo(page) {
     if (page === 'articles') {
