@@ -30,25 +30,7 @@ function displayArticles(filteredArticles = articles) {
         articlesContainer.appendChild(articleCard);
     });
 }
-
-// function displayArticles(filteredArticles = articles) {
-//     articlesContainer.innerHTML = '';
-//     filteredArticles.forEach(article => {
-//         const articleCard = document.createElement('div');
-//         articleCard.classList.add('article-card');
-//         articleCard.innerHTML = `
-            
-//             <div class="article-card-content">
-//                 <h2>${article.title}</h2>
-//                 <p>${article.excerpt}</p>
-//                 <div class="article-card-category">${article.category}</div>
-//             </div>
-//         `;
-//         articlesContainer.appendChild(articleCard);
-//     });
-// }
-/*            <img class="card-img" src="${article.image}" alt="${article.title}" />*/
-
+ 
 function navigateTo(page) {
     if (page === 'articles') {
         window.location.hash = 'articles';
