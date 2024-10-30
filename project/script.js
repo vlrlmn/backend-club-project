@@ -8,7 +8,6 @@ menuButton.addEventListener('click', function() {
     body.classList.toggle('menu-active');
 });
 
-
 const articlesLink = document.getElementById('articles-link');
 const articlesPage = document.getElementById('articles-page');
 const articlesContainer = document.querySelector('.articles-container');
@@ -41,6 +40,7 @@ function navigateTo(page) {
         articlesPage.classList.remove('active');
     }
 }
+
 
 articlesLink.addEventListener('click', function(e) {
     e.preventDefault();
