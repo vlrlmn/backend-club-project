@@ -151,13 +151,20 @@ const closeModalButton = document.querySelector('.close-modal');
 
 
 function openArticleModal(article) {
-    modalTitle.textContent = article.title;
-    modalContent.textContent = article.content;
+    document.getElementById('modal-article-title').textContent = article.title;
+    document.getElementById('modal-article-cover').src = article.image;
+    modalContent.innerHTML = article.content;
     articleModal.classList.add('show');
 }
 
 closeModalButton.addEventListener('click', function() {
     articleModal.classList.remove('show');
+});
+
+articleModal.addEventListener('click', function(event){
+    if(event.target === articleModal) {
+        articleModal.classList.remove('show');
+    }
 });
 
 articlesContainer.addEventListener('click', function(event) {
