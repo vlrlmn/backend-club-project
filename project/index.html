@@ -33,7 +33,7 @@
         <div class="menu" id="menu">
           <ul>
             <li><a href="#" id="articles-link">Articles</a></li>
-            <li><a href="#">Moodboard</a></li>
+            <li><a href="#" id="menu-moodboard-btn">Moodboard</a></li>
             <li><a href="#">Reach Out</a></li>
             <li><a href="#">About</a></li>
           </ul>
@@ -76,21 +76,38 @@
             </div>
         </div>
         </div>
+        <!---------Article window-->
+        <div id="article-modal" class="article-modal">
+          <div class="modal-content">
+              <button class="close-modal">&times;</button>
+              <div class="modal-article-content">
+                  <h2 id="modal-article-title">Article Title</h2>
+                  <p id="modal-article-text">Article content goes here...</p>
+              </div>
+          </div>
+      </div>
       </section>
 
       <section id="moodboard-page" class="hidden">
-        <nav class="articles-nav">
-          <button id="back-homepage-btn">Homepage</button>
+        <nav class="moodboard-nav">
+          <button id="back-homepage-btn-moodboard">Homepage</button>
           <div class="right-buttons">
-            <button id="moodboard-btn">Articles</button>
-            <button id="reach-out-btn">Reach out</button>
-            <button id="about-btn">About</button>
+            <button id="articles-btn">Articles</button>
+            <button id="reach-out-btn-moodboard">Reach Out</button>
+            <button id="about-btn-moodboard">About</button>
           </div>
         </nav>
         <div class="moodboard-cover">
-          <h1 class="moodboard-title">Articles</h1>
+          <h1 class="cover-title">Moodboard</h1>
+        </div>
+        <div class="moodboard-content">
+          <p>Coming Soon! This moodboard is in 
+            progress - soon you'll find an inspiring collection of 
+            beauty and creativity. Stay tuned!</p>
         </div>
       </section>
+
+
     </main>
 
     <script src="script.js"></script>

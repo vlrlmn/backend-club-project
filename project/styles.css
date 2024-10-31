@@ -1,6 +1,6 @@
 /* Website cursor */
 * {
-    cursor: url('beauty.png'), default;
+    /* cursor: url('beauty.png'), default; */
     box-sizing: border-box;
 }
 
@@ -23,7 +23,7 @@ body {
   font-family: 'Baskervville', serif;
   color: linen;
   background-color: rgb(23, 17, 17);
-  cursor: url('beauty.png'), default;
+  /* cursor: url('beauty.png'), default; */
 }
 
 /* Images */
@@ -170,7 +170,7 @@ body.menu-active .overlay {
     right: -100%;
     width: 100%;
     height: 100vh;
-    background-color: #282623;
+    background-color: #171212;
     transition: right 0.7s ease;
     overflow-y: auto;
     z-index: 11;
@@ -181,8 +181,8 @@ body.menu-active .overlay {
 }
 
 #back-homepage-btn {
-    margin: 20px;
-    padding: 10px 20px;
+    margin: 10px;
+    padding: 10px 10px;
     color: white;
     border: none;
     background-color: transparent;
@@ -192,6 +192,16 @@ body.menu-active .overlay {
 #back-homepage-btn:hover {
     transform: scale(1.3);
     text-shadow: 0px 4px 5px rgba(0, 0, 0, 0.5);
+}
+
+/*Back btn*/
+.articles-nav, .moodboard-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    z-index: 3;
+    padding: 10px;
 }
 
 /* Articles page navigation bar */
@@ -250,6 +260,7 @@ body.menu-active .overlay {
 .category-btn {
     font-family: 'Raleway', sans-serif;
     padding: 10px 15px;
+    font-weight: bold;
     font-size: 1.1rem;
     color: white;
     border: none;
@@ -316,18 +327,17 @@ body.menu-active .overlay {
     display: flex;
     flex-direction: row;
     flex: 0 1 calc(33.333% - 20px);
-    background-color: rgba(45, 43, 37, 0.9);
+    background-color: #1a0f0f;
     border-radius: 10px;
     overflow: hidden;
     position: relative;
-    border: 0.1px solid white;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     z-index: 1;
 }
 
 .article-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 15px rgba(64, 59, 54, 0.7);
 
 }
 
@@ -345,18 +355,17 @@ body.menu-active .overlay {
 
 /* Content inside the article card */
 .article-card-content {
-    padding: 15px;
+    padding: 45px;
     width: 70%;
     display: flex;
     flex-direction: column;
-    /* justify-content: space-between; */
     justify-content: flex-start;
-    color: linen;
+    color: rgb(255, 255, 255);
     position: relative;
 }
 
 .article-card-content h2 {
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-family: 'Raleway', sans-serif;
     margin: 0 0 10px 0;
 }
@@ -375,6 +384,117 @@ body.menu-active .overlay {
     right: 10px;
 }
 
+/* ARTICLE PAGE */
+.article-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    padding: 20px;
+    width: 80%;
+    max-width: 800px;
+    border-radius: 10px;
+    transform: scale(0.7);
+    transition: transform 0.4s ease;
+    color: rgb(0, 0, 0);
+    position: relative;
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.3);
+}
+.article-modal.show {
+    display: flex;
+}
+.article-modal.show .modal-content {
+    transform: scale(1);
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    color: rgb(0, 0, 0);
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-modal:hover {
+    transform: scale(1.5);
+    transition: transform 0.4s ease;
+}
+
+.modal-article-content h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.modal-article-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/*Moodboard page*/
+
+#moodboard-page 
+{
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100vh;
+    background-color: #171212;
+    transition: right 0.7s ease;
+    overflow-y: auto;
+    z-index: 11;
+}
+
+#moodboard-page.active {
+    right: 0;
+}
+
+.mooboard-cover {
+    position: relative;
+    width: 100%;
+    height: 55hv;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.moodboard-cover::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('pictures/covers/1.jpeg');
+    background-position: center;
+    background-size: cover;
+    opacity: 0.6;
+    z-index: 1;
+}
+
+.cover-title {
+    font-family: 'Notable', sans-serif;
+    font-size: 4vw;
+    color: white;
+    z-index: 2;
+    position: relative;
+}
 
 /* Screen adaptation */
 @media only screen and (max-width: 720px) {

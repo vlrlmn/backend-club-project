@@ -1,15 +1,16 @@
 const articles = [
     {
-        title: 'Spend a remarkable Weekend in Oman',
+        title: 'The Perfect Weekend in Oman: Where to Go and What to See',
         excerpt: '',
         content: '',
-        image: 'pictures/travel/main2.jpeg',
+        
+    image: 'pictures/travel/main2.jpeg',
         category: 'Travel'
     },
     {
         title: 'Best libraries in UAE',
         excerpt: '',
-        content: '',
+        content: 'Detailed content about the best libraries in UAE...',
         image: 'pictures/education/test.jpeg',
         category: 'Education'
     },
@@ -40,6 +41,13 @@ const articles = [
         content: '',
         image: 'pictures/art/museum.jpeg',
         category: 'Education'
+    },
+    {
+        title: '3 unexpected ways to cook for tender beef',
+        excerpt: '',
+        content: '',
+        image: 'pictures/lifestyle/beef.jpeg',
+        category: 'Lifestyle'
     },
 
 ];
