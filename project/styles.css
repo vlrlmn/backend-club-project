@@ -26,6 +26,22 @@ body {
   /* cursor: url('beauty.png'), default; */
 }
 
+.hidden {
+    display: none; /* Или можно использовать 'visibility: hidden' и 'position: absolute' */
+    right: 100%; /* Если используете абсолютное позиционирование */
+}
+
+.active {
+    display: block; /* Или 'visibility: visible' */
+    right: 0;
+    z-index: 20; /* Более высокий индекс для активной страницы */
+}
+
+/* Анимации для плавного появления страниц */
+.page {
+    transition: right 0.5s ease-in-out;
+}
+
 /* Images */
 img.left, img.right {
     position: absolute;
@@ -366,7 +382,7 @@ body.menu-active .overlay {
 
 /* Image inside the article card */
 .article-card img {
-    position: static;
+    /* position: static; */
     width: 40%;
     height: 100%;
     object-fit: cover;
@@ -494,69 +510,53 @@ body.menu-active .overlay {
     line-height: 1.6;
 }
 
-/*Moodboard page*/
-#moodboard-page {
+/*MOODBOARD*/
+.moodboard-page {
     position: fixed;
-    top: 0;
+    top: 50px; /* Учитывая ваш навигационный бар */
     left: 0;
-    right: -100%;
     width: 100vw;
-    height: 100vh;
+    height: calc(100vh - 50px); /* Вычетаем высоту навигационного бара */
     background-color: #171212;
-    transition: right 0.7s ease;
-    overflow-y: hidden;
-    z-index: 11;
+    overflow: hidden;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-#moodboard-page.active {
-    right: 0;
-}
-
-/* Сетка фотографий */
 .moodboard-grid {
     display: grid;
-    grid-template-columns: repeat(7, 1fr); /* 5 столбцов */
-    grid-template-rows: repeat(3, 1fr); /* 4 строки */
-    gap: 5px;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     width: 100%;
     height: 100%;
-    position: absolute;
-    z-index: 1;
 }
 
-/* Изображения в сетке */
 .moodboard-grid img {
     position: static;
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: cover;
-    border: 1px solid white;
-    display: block;
 }
 
-
-/* Текст поверх сетки */
-.moodboard-text {
+.moodboard-cover {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    font-size: 5rem;
-    color: white;
+    top: 50%; /* Центрирование по вертикали */
+    left: 50%; /* Центрирование по горизонтали */
+    transform: translate(-50%, -50%); /* Точное центрирование */
     text-align: center;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 8px;
+    color: white; /* Или другой цвет, который будет виден на ваших изображениях */
+    z-index: 20; /* Убедитесь, что текст выше изображений */
 }
 
+.cover-title {
+    font-size: 2rem;
+    font-weight: bold;
+}
 
-.moodboard-nav {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    z-index: 2;
-    position: relative;
+.cover-text {
+    font-size: 1.2rem;
+    margin-top: 20px;
 }
 
 /* Обложка Moodboard */
