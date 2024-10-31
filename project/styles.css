@@ -27,7 +27,7 @@ body {
 }
 
 /* Images */
-img {
+img.left, img.right {
     position: absolute;
     top: 0;
     height: auto;
@@ -195,7 +195,7 @@ body.menu-active .overlay {
 }
 
 /*Back btn*/
-.articles-nav, .moodboard-nav {
+.articles-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -250,69 +250,7 @@ body.menu-active .overlay {
   }
 
 /* Categories nav bar */
-/* 
-.categories-filter {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
-}
 
-.categories {
-    display: flex;
-    gap: 20px;
-}
-
-#keyword-search {
-    padding: 5px 10px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    max-width: 200px;
-    outline: none;
-    transition: border-color 0.3s ease;
-}
-
-#keyword-search:focus {
-    border-color: #888;
-}
-
-.categories {
-    display: flex;
-    gap: 70px;
-    margin-top: 20px;
-    justify-content: center;
-    
-}
-
-.category-btn {
-    font-family: 'Raleway', sans-serif;
-    padding: 10px 15px;
-    font-weight: bold;
-    font-size: 1.1rem;
-    color: white;
-    border: none;
-    background-color: transparent;
-    transition: transform 0.5s ease;
-    justify-content: center;
-}
-
-.category-btn:hover {
-    transform: scale(1.1);
-    background-color: transparent;
-    box-shadow: 5px rgba(0, 0, 0, 0.2);
-    transition: transform 0.7s ease;
-}
-
-#keyword-search {
-    padding: 8px;
-    margin-top: 20px;
-    font-size: 1rem;
-    border-radius: 5px;
-    background-color:rgb(45, 43, 37);
-    margin-left: 20px;
-    width: 250px;
-} */
 
 .categories-filter {
     display: flex;
@@ -329,7 +267,8 @@ body.menu-active .overlay {
 
 .category-btn {
     font-family: 'Raleway', sans-serif;
-    padding: 10px 15px;
+    margin-top: 25px;
+    margin-bottom: 5px;
     font-weight: bold;
     font-size: 1.1rem;
     color: white;
@@ -346,11 +285,14 @@ body.menu-active .overlay {
 }
 
 #keyword-search {
-    padding: 8px;
+    padding: 10px;
+    margin-top: 25px;
+    margin-bottom: 5px;
     font-size: 1rem;
+    font-family: 'Raleway', sans-serif;
     border-radius: 5px;
-    border: 1px solid #ccc;
-    background-color: rgb(45, 43, 37);
+    border: none;
+    background-color: rgba(115, 115, 115, 0.136);
     margin-left: 20px;
     width: 250px;
     color: white;
@@ -408,7 +350,7 @@ body.menu-active .overlay {
     display: flex;
     flex-direction: row;
     flex: 0 1 calc(33.333% - 20px);
-    background-color: #1a0f0f;
+    background-color: #eeeeee0b;
     border-radius: 10px;
     overflow: hidden;
     position: relative;
@@ -553,16 +495,16 @@ body.menu-active .overlay {
 }
 
 /*Moodboard page*/
-#moodboard-page 
-{
+#moodboard-page {
     position: fixed;
     top: 0;
+    left: 0;
     right: -100%;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     background-color: #171212;
     transition: right 0.7s ease;
-    overflow-y: auto;
+    overflow-y: hidden;
     z-index: 11;
 }
 
@@ -570,38 +512,69 @@ body.menu-active .overlay {
     right: 0;
 }
 
-.mooboard-cover {
-    position: relative;
-    width: 100%;
-    height: 55hv;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1;
-    overflow: hidden;
-}
-
-.moodboard-cover::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
+/* Сетка фотографий */
+.moodboard-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 5 столбцов */
+    grid-template-rows: repeat(3, 1fr); /* 4 строки */
+    gap: 5px;
     width: 100%;
     height: 100%;
-    background-image: url('pictures/covers/1.jpeg');
-    background-position: center;
-    background-size: cover;
-    opacity: 0.6;
+    position: absolute;
     z-index: 1;
+}
+
+/* Изображения в сетке */
+.moodboard-grid img {
+    position: static;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 1px solid white;
+    display: block;
+}
+
+
+/* Текст поверх сетки */
+.moodboard-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    font-size: 5rem;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+}
+
+
+.moodboard-nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    z-index: 2;
+    position: relative;
+}
+
+/* Обложка Moodboard */
+.moodboard-cover {
+    display: none;
 }
 
 .cover-title {
     font-family: 'Notable', sans-serif;
     font-size: 4vw;
     color: white;
-    z-index: 2;
+    z-index: 3;
     position: relative;
+    text-align: center;
+    padding: 10px 20px;
+    border-radius: 5px;
 }
+
 
 /* Screen adaptation */
 @media only screen and (max-width: 720px) {
