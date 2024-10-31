@@ -174,3 +174,38 @@ articlesContainer.addEventListener('click', function(event) {
         openArticleModal(articles[articleIndex]);
     }
 });
+
+/* KEYWORDS SEARCH */
+const searchInput = document.getElementById('keyword-search');
+
+searchInput.addEventListener('input', function() {
+    const keyword = searchInput.value.toLowerCase();
+    const selectedCategory = document.querySelector('.category-btn.active')?.getAttribute('data-category') || 'All';
+
+    const filteredArticles = articles.filter(article => {
+        const matchesCategory = selectedCategory === 'All' || article.category === selectedCategory;
+        const matchesKeyword = (article.title.toLowerCase().includes(keyword) || 
+                                article.content.toLowerCase().includes(keyword)); // проверка title и content
+        return matchesCategory && matchesKeyword;
+    });
+    displayArticles(filteredArticles);
+});
+
+/* UPDATE CATEGORY FILTER TO WORK WITH SEARCH */
+categoryButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        categoryButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        const category = button.getAttribute('data-category');
+        const keyword = searchInput.value.toLowerCase();
+
+        const filteredArticles = articles.filter(article => {
+            const matchesCategory = category === 'All' || article.category === category;
+            const matchesKeyword = (article.title.toLowerCase().includes(keyword) || 
+                                    article.content.toLowerCase().includes(keyword)); // проверка title и content
+            return matchesCategory && matchesKeyword;
+        });
+        displayArticles(filteredArticles);
+    });
+});
