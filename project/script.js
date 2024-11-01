@@ -47,6 +47,7 @@ function displayArticles(filteredArticles = articles) {
  
 /* NAVIGATION */
 function navigateTo(page) {
+    const homepage = document.querySelector('.heading');
 
     articlesPage.classList.remove('active');
     moodboardPage.classList.remove('active');
@@ -55,14 +56,16 @@ function navigateTo(page) {
         window.location.hash = 'articles';
         articlesPage.classList.add('active');
         displayArticles();
+        homepage.style.display = 'none';
     } else if (page === 'moodboard') {
         window.location.hash = 'moodboard';
         moodboardPage.classList.add('active');
+        homepage.style.display = 'none';
     } else {
         window.location.hash = '';
+        homepage.style.display = 'block';
     }
 }
-
 
 /* CLICKS */
 articlesLink.addEventListener('click', function(e) {

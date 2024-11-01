@@ -19,6 +19,7 @@ html, body {
     z-index: 10;
 }
 
+/* BODY */
 body {
   font-family: 'Baskervville', serif;
   color: linen;
@@ -27,22 +28,24 @@ body {
 }
 
 .hidden {
-    display: none; /* Или можно использовать 'visibility: hidden' и 'position: absolute' */
-    right: 100%; /* Если используете абсолютное позиционирование */
+    /* visibility: hidden; */
+    position: absolute;
+    display: none;
+    right: 100%;
 }
 
 .active {
-    display: block; /* Или 'visibility: visible' */
+    display: block;
+    visibility: visible;
     right: 0;
-    z-index: 20; /* Более высокий индекс для активной страницы */
+    z-index: 20;
 }
 
-/* Анимации для плавного появления страниц */
 .page {
     transition: right 0.5s ease-in-out;
 }
 
-/* Images */
+/* Homepage images */
 img.left, img.right {
     position: absolute;
     top: 0;
@@ -105,7 +108,7 @@ body.menu-active .overlay {
     max-width: 38vw;
 }
 
-/* Button for menu */
+/* Button for menu homepage */
 .explore-button {
     position: relative;
     margin-left: 3vw;
@@ -131,7 +134,7 @@ body.menu-active .overlay {
     color: white;
 }
 
-/* Menu */
+/* Menu homepage*/
 .menu {
     position: fixed;
     top: 5vw;
@@ -179,7 +182,7 @@ body.menu-active .overlay {
     transition: font-size 0.5s ease;
 }
 
-/* Articles page */
+/* ARTICLES PAGE */
 #articles-page {
     position: fixed;
     top: 0;
@@ -210,7 +213,7 @@ body.menu-active .overlay {
     text-shadow: 0px 4px 5px rgba(0, 0, 0, 0.5);
 }
 
-/*Back btn*/
+/*Back btn articles page*/
 .articles-nav {
     display: flex;
     justify-content: space-between;
@@ -265,9 +268,7 @@ body.menu-active .overlay {
     transform: scale(1.3);
   }
 
-/* Categories nav bar */
-
-
+/* Categories nav bar articles page*/
 .categories-filter {
     display: flex;
     align-items: center;
@@ -314,7 +315,6 @@ body.menu-active .overlay {
     color: white;
 }
 
-
 /* Articles page cover */
 .articles-cover {
     position: relative;
@@ -349,8 +349,7 @@ body.menu-active .overlay {
 }
 
 
-/* Articles container */
-
+/* Articles page - articles container */
 .articles-container {
     display: flex;
     flex-wrap: wrap;
@@ -360,7 +359,7 @@ body.menu-active .overlay {
     padding: 20px;
 }
 
-/* Each article card */
+/* Each article card on article page*/
 .article-card {
     height: 150px;
     display: flex;
@@ -380,7 +379,8 @@ body.menu-active .overlay {
 
 }
 
-/* Image inside the article card */
+/* Image inside the article card (article page) */
+
 .article-card img {
     /* position: static; */
     width: 40%;
@@ -392,7 +392,7 @@ body.menu-active .overlay {
     z-index: 2;
 }
 
-/* Content inside the article card */
+/* Content inside the article card (article page) */
 .article-card-content {
     padding: 45px;
     width: 70%;
@@ -423,7 +423,7 @@ body.menu-active .overlay {
     right: 10px;
 }
 
-/* ARTICLE PAGE */
+/* Modal window with article (article page)*/
 .article-modal {
     display: none;
     position: fixed;
@@ -510,26 +510,81 @@ body.menu-active .overlay {
     line-height: 1.6;
 }
 
-/*MOODBOARD*/
+/*MOODBOARD PAGE*/
 .moodboard-page {
+    padding-top: 50px;
     position: fixed;
-    top: 50px; /* Учитывая ваш навигационный бар */
-    left: 0;
-    width: 100vw;
-    height: calc(100vh - 50px); /* Вычетаем высоту навигационного бара */
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100vh;
     background-color: #171212;
-    overflow: hidden;
-    z-index: 10;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    transition: right 0.7s ease;
+    overflow-y: auto;
+    z-index: 11;
+    display: none;
 }
+
+#moodboard-page.active {
+    display: block;
+    right: 0;
+}
+/* Стили для навигации на странице Moodboard */
+.moodboard-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    padding: 10px;
+    z-index: 12;
+}
+
+.moodboard-nav button {
+    padding: 10px 20px;
+    font-family: 'Notable', sans-serif;
+    font-size: 1rem;
+    color: white;
+    border: none;
+    background-color: transparent;
+    transition: transform 0.5s ease;
+    cursor: pointer;
+}
+
+.moodboard-nav button:hover {
+    transform: scale(1.3);
+    text-shadow: 0px 4px 5px rgba(0, 0, 0, 0.5);
+}
+
+.right-buttons {
+    display: flex;
+    gap: 10px;
+    margin-right: 20px;
+}
+
+.right-buttons button {
+    padding: 10px 15px;
+    font-family: 'Notable', sans-serif;
+    font-size: 1rem;
+    color: white;
+    border: none;
+    background-color: transparent;
+    transition: transform 0.5s ease;
+    cursor: pointer;
+}
+
+.right-buttons button:hover {
+    transform: scale(1.3);
+}
+
 
 .moodboard-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    position: static;
+    top: 0;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     width: 100%;
     height: 100%;
+    z-index: 10;
 }
 
 .moodboard-grid img {
@@ -541,38 +596,32 @@ body.menu-active .overlay {
 
 .moodboard-cover {
     position: absolute;
-    top: 50%; /* Центрирование по вертикали */
-    left: 50%; /* Центрирование по горизонтали */
-    transform: translate(-50%, -50%); /* Точное центрирование */
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
-    color: white; /* Или другой цвет, который будет виден на ваших изображениях */
-    z-index: 20; /* Убедитесь, что текст выше изображений */
-}
-
-.cover-title {
-    font-size: 2rem;
-    font-weight: bold;
+    justify-content: center;
+    color: white;
+    z-index: 12;
+    display:block;
 }
 
 .cover-text {
-    font-size: 1.2rem;
+    font-family: 'Notable', sans-serif;
+    font-size: 1.3rem;
+    width: 100%;
+    background-color: #1712128d;
     margin-top: 20px;
-}
-
-/* Обложка Moodboard */
-.moodboard-cover {
-    display: none;
+    color: white;
+    text-align: center;
 }
 
 .cover-title {
     font-family: 'Notable', sans-serif;
     font-size: 4vw;
     color: white;
-    z-index: 3;
-    position: relative;
+    font-weight: bold;
     text-align: center;
-    padding: 10px 20px;
-    border-radius: 5px;
 }
 
 
@@ -609,4 +658,4 @@ body.menu-active .overlay {
   .explore-button .button {
     font-size: 3.5vw;
   }
-}
+} 
