@@ -188,7 +188,7 @@ searchInput.addEventListener('input', function() {
     const filteredArticles = articles.filter(article => {
         const matchesCategory = selectedCategory === 'All' || article.category === selectedCategory;
         const matchesKeyword = (article.title.toLowerCase().includes(keyword) || 
-                                article.content.toLowerCase().includes(keyword)); // проверка title и content
+                                article.content.toLowerCase().includes(keyword));
         return matchesCategory && matchesKeyword;
     });
     displayArticles(filteredArticles);
@@ -206,7 +206,7 @@ categoryButtons.forEach(button => {
         const filteredArticles = articles.filter(article => {
             const matchesCategory = category === 'All' || article.category === category;
             const matchesKeyword = (article.title.toLowerCase().includes(keyword) || 
-                                    article.content.toLowerCase().includes(keyword)); // проверка title и content
+                                    article.content.toLowerCase().includes(keyword));
             return matchesCategory && matchesKeyword;
         });
         displayArticles(filteredArticles);
